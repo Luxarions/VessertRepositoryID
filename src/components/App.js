@@ -26,6 +26,7 @@ import {
 	toggleSearchModal,
 	toggleHistoryModal,
 	toggleConsole,
+	toggleViewAllFiles,
 	setActiveReadmeTab,
 	runCurrentFileCode,
 } from '../engine/orchestrator.js';
@@ -207,7 +208,15 @@ function bindEvents( root ) {
 
 			if ( type === 'dir' ) {
 
-				navigateDir( row.querySelector( 'span.truncate' )?.textContent?.trim() );
+				if ( path ) {
+
+					setPathSegments( path.split( '/' ).filter( Boolean ) );
+
+				} else {
+
+					navigateDir( row.querySelector( 'span.truncate' )?.textContent?.trim() );
+
+				}
 
 			} else if ( path ) {
 
@@ -324,10 +333,10 @@ function bindEvents( root ) {
 
 	} );
 
-	// View all files button (scrolls or opens search)
+	// View all files button - toggles all files and scrolls based on existing files/folders
 	root.querySelector( '#view-all-files-btn' )?.addEventListener( 'click', () => {
 
-		toggleSearchModal();
+		toggleViewAllFiles();
 
 	} );
 

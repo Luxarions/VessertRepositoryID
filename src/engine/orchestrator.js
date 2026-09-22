@@ -178,6 +178,57 @@ function toggleConsole() {
 
 }
 
+function toggleViewAllFiles() {
+
+	if ( ! state.viewAllFiles ) {
+
+		state.viewAllFiles = true;
+		notify();
+
+		requestAnimationFrame( () => {
+
+			const scrollContainer = document.querySelector( '#file-items-scroll-container' );
+			const fileCard = document.querySelector( '#repo-file-list-card' );
+
+			if ( fileCard ) {
+
+				fileCard.scrollIntoView( { behavior: 'smooth', block: 'nearest' } );
+
+			}
+
+			if ( scrollContainer ) {
+
+				scrollContainer.scrollTo( { top: 0, behavior: 'smooth' } );
+
+			}
+
+		} );
+
+	} else {
+
+		// When already showing all files, tap will smoothly scroll through the existing files/folders
+		const scrollContainer = document.querySelector( '#file-items-scroll-container' );
+
+		if ( scrollContainer ) {
+
+			const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+
+			if ( scrollContainer.scrollTop + 10 >= maxScroll ) {
+
+				scrollContainer.scrollTo( { top: 0, behavior: 'smooth' } );
+
+			} else {
+
+				scrollContainer.scrollBy( { top: 180, behavior: 'smooth' } );
+
+			}
+
+		}
+
+	}
+
+}
+
 function setActiveReadmeTab( tab ) {
 
 	state.activeReadmeTab = tab;
@@ -225,6 +276,7 @@ export {
 	toggleSearchModal,
 	toggleHistoryModal,
 	toggleConsole,
+	toggleViewAllFiles,
 	setActiveReadmeTab,
 	runCurrentFileCode,
 };
