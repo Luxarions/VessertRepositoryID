@@ -8,7 +8,7 @@ import { ICON_SIZE_XS, ICON_SIZE_SMALL } from '../constants.js';
 import { bookOpen, star, eye, fork, tag, activity } from '../icons.js';
 import { pluralize } from '../utils.js';
 
-export function RepoDetailSections( state ) {
+function RepoDetailSections( state ) {
 	const { repo } = state;
 
 	return `
@@ -68,4 +68,5 @@ export function RepoDetailSections( state ) {
 	`;
 }
 
+export { RepoDetailSections };
 export default RepoDetailSections;

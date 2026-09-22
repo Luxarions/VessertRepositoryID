@@ -7,7 +7,7 @@
 import { ICON_SIZE_SMALL } from '../constants.js';
 import { copy, check } from '../icons.js';
 
-export function FileViewerBreadcrumb( state ) {
+function FileViewerBreadcrumb( state ) {
 	const { selectedFile, repo, copied } = state;
 
 	return `
@@ -22,4 +22,5 @@ export function FileViewerBreadcrumb( state ) {
 	`;
 }
 
+export { FileViewerBreadcrumb };
 export default FileViewerBreadcrumb;

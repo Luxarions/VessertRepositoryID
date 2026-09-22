@@ -150,7 +150,7 @@ const initialRepoData = {
 			path: 'src/constants.js',
 			size: '1.4 KB',
 			language: 'javascript',
-			content: `export const VERSION = '0.1.0';\nexport const DEFAULT_BRANCH = 'main';\n`,
+			content: `const VERSION = '0.1.0';\nconst DEFAULT_BRANCH = 'main';\n\nexport { VERSION, DEFAULT_BRANCH };\n`,
 		},
 		{
 			name: 'utils.js',
@@ -159,7 +159,7 @@ const initialRepoData = {
 			path: 'src/utils.js',
 			size: '1.1 KB',
 			language: 'javascript',
-			content: `export function escapeHtml( str ) { return str.replace(/&/g, '&amp;'); }\n`,
+			content: `function escapeHtml( str ) { return str.replace(/&/g, '&amp;'); }\n\nexport { escapeHtml };\n`,
 		},
 		{
 			name: 'icons.js',
@@ -168,7 +168,7 @@ const initialRepoData = {
 			path: 'src/icons.js',
 			size: '1.8 KB',
 			language: 'javascript',
-			content: `export * from './icons/octocat.js';\n`,
+			content: `import octocat from './icons/octocat.js';\n\nexport { octocat };\n`,
 		},
 		{
 			name: 'RepoRenderer.js',
@@ -177,7 +177,7 @@ const initialRepoData = {
 			path: 'src/renderers/RepoRenderer.js',
 			size: '8.2 KB',
 			language: 'javascript',
-			content: `export class RepoRenderer {\n  constructor( container ) {}\n  render() {}\n  mount( container ) {}\n}\n`,
+			content: `class RepoRenderer {\n  constructor( container ) {}\n  render() {}\n  mount( container ) {}\n}\n\nexport { RepoRenderer };\nexport default RepoRenderer;\n`,
 		},
 		{
 			name: 'Vessert.js',
@@ -215,7 +215,7 @@ const initialRepoData = {
 			path: 'src/core/EventDispatcher.js',
 			size: '1.2 KB',
 			language: 'javascript',
-			content: `export class EventDispatcher {\n  addEventListener( type, listener ) {}\n  dispatchEvent( event ) {}\n}\n`,
+			content: `class EventDispatcher {\n  addEventListener( type, listener ) {}\n  dispatchEvent( event ) {}\n}\n\nexport { EventDispatcher };\n`,
 		},
 		{
 			name: 'State.js',
@@ -224,7 +224,7 @@ const initialRepoData = {
 			path: 'src/core/State.js',
 			size: '1.5 KB',
 			language: 'javascript',
-			content: `export const state = { /* ... */ };\n`,
+			content: `const state = { /* ... */ };\n\nexport { state };\n`,
 		},
 		{
 			name: 'Orchestrator.js',
@@ -233,7 +233,7 @@ const initialRepoData = {
 			path: 'src/core/Orchestrator.js',
 			size: '4.8 KB',
 			language: 'javascript',
-			content: `export class OrchestratorController extends EventDispatcher { /* ... */ }\n`,
+			content: `class OrchestratorController extends EventDispatcher { /* ... */ }\n\nexport { OrchestratorController };\n`,
 		},
 
 		// Nested files: src/counters
@@ -244,7 +244,7 @@ const initialRepoData = {
 			path: 'src/counters/Counter.js',
 			size: '1.1 KB',
 			language: 'javascript',
-			content: `export class Counter {\n  constructor( initialValue = 0 ) { this.value = initialValue; }\n}\n`,
+			content: `class Counter {\n  constructor( initialValue = 0 ) { this.value = initialValue; }\n}\n\nexport { Counter };\n`,
 		},
 		{
 			name: 'StarCounter.js',
@@ -253,7 +253,7 @@ const initialRepoData = {
 			path: 'src/counters/StarCounter.js',
 			size: '1.3 KB',
 			language: 'javascript',
-			content: `export class StarCounter extends Counter {\n  toggle() { /* ... */ }\n}\n`,
+			content: `class StarCounter extends Counter {\n  toggle() { /* ... */ }\n}\n\nexport { StarCounter };\n`,
 		},
 
 		// Nested files: src/modals
@@ -264,7 +264,7 @@ const initialRepoData = {
 			path: 'src/modals/Modal.js',
 			size: '1.4 KB',
 			language: 'javascript',
-			content: `export class Modal {\n  renderShell( options ) { /* ... */ }\n}\n`,
+			content: `class Modal {\n  renderShell( options ) { /* ... */ }\n}\n\nexport { Modal };\n`,
 		},
 
 		// Nested files: src/files
@@ -275,7 +275,7 @@ const initialRepoData = {
 			path: 'src/files/FileList.js',
 			size: '3.6 KB',
 			language: 'javascript',
-			content: `export function FileList( state ) { /* ... */ }\n`,
+			content: `function FileList( state ) { /* ... */ }\n\nexport { FileList };\n`,
 		},
 		{
 			name: 'FileViewer.js',
@@ -284,7 +284,7 @@ const initialRepoData = {
 			path: 'src/files/FileViewer.js',
 			size: '2.8 KB',
 			language: 'javascript',
-			content: `export function FileViewer( state ) { /* ... */ }\n`,
+			content: `function FileViewer( state ) { /* ... */ }\n\nexport { FileViewer };\n`,
 		},
 
 		// Nested files: src/repo
@@ -295,7 +295,7 @@ const initialRepoData = {
 			path: 'src/repo/GridHelper.js',
 			size: '4.2 KB',
 			language: 'javascript',
-			content: `export function GridHelper( state ) { /* ... */ }\n`,
+			content: `function GridHelper( state ) { /* ... */ }\n\nexport { GridHelper };\n`,
 		},
 	],
 };

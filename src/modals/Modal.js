@@ -8,7 +8,7 @@
 import { ICON_SIZE } from '../constants.js';
 import { x } from '../icons.js';
 
-export class Modal {
+class Modal {
 	constructor( id = 'modal', title = '' ) {
 		this.id = id;
 		this.title = title;
@@ -43,4 +43,5 @@ export class Modal {
 	}
 }
 
+export { Modal };
 export default Modal;

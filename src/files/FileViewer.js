@@ -12,7 +12,7 @@ import { FileViewerToolbar } from './FileViewerToolbar.js';
 import { FileViewerCodeTable } from './FileViewerCodeTable.js';
 import { FileViewerConsole } from './FileViewerConsole.js';
 
-export function FileViewer( state ) {
+function FileViewer( state ) {
 	if ( ! state || ! state.selectedFile ) return '';
 
 	return `
@@ -28,4 +28,5 @@ export function FileViewer( state ) {
 	`;
 }
 
+export { FileViewer };
 export default FileViewer;

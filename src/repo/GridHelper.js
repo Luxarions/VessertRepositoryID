@@ -11,7 +11,7 @@ import { FileList } from '../files/FileList.js';
 import { FileViewer } from '../files/FileViewer.js';
 import { RepoDetailSections } from './RepoDetailSections.js';
 
-export function ReadmeBox( state ) {
+function ReadmeBox( state ) {
 	const { activeReadmeTab = 'readme', copied } = state;
 	const isReadme = activeReadmeTab === 'readme';
 
@@ -130,7 +130,7 @@ mountApp( root );</code></pre>
 	`;
 }
 
-export function GridHelper( state ) {
+function GridHelper( state ) {
 	return `
 		<div id="repo-grid-container" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 			<div class="lg:col-span-8 flex flex-col gap-4">
@@ -149,5 +149,10 @@ export function GridHelper( state ) {
 		</div>
 	`;
 }
+
+export {
+	ReadmeBox,
+	GridHelper,
+};
 
 export default GridHelper;

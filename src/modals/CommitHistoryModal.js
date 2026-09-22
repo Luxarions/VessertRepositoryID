@@ -8,7 +8,7 @@ import { Modal } from './Modal.js';
 import { ICON_SIZE, ICON_SIZE_XS } from '../constants.js';
 import { history, x, check } from '../icons.js';
 
-export class CommitHistoryModalClass extends Modal {
+class CommitHistoryModalClass extends Modal {
 	constructor() {
 		super( 'history-modal', 'Commit History' );
 	}
@@ -73,8 +73,13 @@ export class CommitHistoryModalClass extends Modal {
 
 const defaultCommitModal = new CommitHistoryModalClass();
 
-export function CommitHistoryModal( state ) {
+function CommitHistoryModal( state ) {
 	return defaultCommitModal.render( state );
 }
+
+export {
+	CommitHistoryModalClass,
+	CommitHistoryModal,
+};
 
 export default CommitHistoryModal;

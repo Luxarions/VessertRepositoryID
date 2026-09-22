@@ -7,7 +7,7 @@
 
 import { ELLIPSIS } from './constants.js';
 
-export function escapeHtml( text ) {
+function escapeHtml( text ) {
 	if ( typeof text !== 'string' ) return '';
 
 	return text
@@ -18,15 +18,21 @@ export function escapeHtml( text ) {
 		.replace( /'/g, '&#039;' );
 }
 
-export function truncate( text, maxLength, ellipsis = ELLIPSIS ) {
+function truncate( text, maxLength, ellipsis = ELLIPSIS ) {
 	if ( text.length <= maxLength ) return text;
 	return text.slice( 0, maxLength - ellipsis.length ) + ellipsis;
 }
 
-export function pluralize( count, singular, plural ) {
+function pluralize( count, singular, plural ) {
 	const word = count === 1 ? singular : ( plural ?? singular + 's' );
 	return `${ count } ${ word }`;
 }
+
+export {
+	escapeHtml,
+	truncate,
+	pluralize,
+};
 
 export default {
 	escapeHtml,

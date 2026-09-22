@@ -7,7 +7,7 @@
 import { ICON_SIZE, LOG_TYPES } from '../constants.js';
 import { monitor } from '../icons.js';
 
-export function getLogStyle( type ) {
+function getLogStyle( type ) {
 	switch ( type ) {
 		case LOG_TYPES.SUCCESS:
 			return { color: 'text-[#3fb950]', border: 'border-l-2 border-[#3fb950]' };
@@ -22,7 +22,7 @@ export function getLogStyle( type ) {
 	}
 }
 
-export function FileViewerConsole( state ) {
+function FileViewerConsole( state ) {
 	const { consoleLogs = [] } = state;
 
 	return `
@@ -55,5 +55,10 @@ export function FileViewerConsole( state ) {
 		</div>
 	`;
 }
+
+export {
+	getLogStyle,
+	FileViewerConsole,
+};
 
 export default FileViewerConsole;

@@ -9,7 +9,7 @@ import { getFilesInDirectory, sortFiles } from './FileTree.js';
 import { getFileIcon } from './FileIcons.js';
 import { identicon, check } from '../icons.js';
 
-export function FileList( state ) {
+function FileList( state ) {
 	const { repo, pathSegments, viewAllFiles } = state;
 	const isRoot = pathSegments.length === 0;
 
@@ -107,4 +107,5 @@ export function FileList( state ) {
 	`;
 }
 
+export { FileList };
 export default FileList;

@@ -7,7 +7,7 @@
 import { DEFAULT_BRANCH, DEFAULT_TAB } from '../constants.js';
 import { initialRepoData } from '../data/repoData.js';
 
-export const state = {
+const state = {
 	activeTab: DEFAULT_TAB,
 	currentBranch: DEFAULT_BRANCH,
 	selectedFile: null,
@@ -28,11 +28,11 @@ export const state = {
 	isConsoleOpen: false,
 };
 
-export function getState() {
+function getState() {
 	return state;
 }
 
-export function resetState() {
+function resetState() {
 	Object.assign( state, {
 		activeTab: DEFAULT_TAB,
 		currentBranch: DEFAULT_BRANCH,
@@ -54,6 +54,12 @@ export function resetState() {
 		isConsoleOpen: false,
 	} );
 }
+
+export {
+	state,
+	getState,
+	resetState,
+};
 
 export default {
 	state,

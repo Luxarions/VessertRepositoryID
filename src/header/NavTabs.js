@@ -15,7 +15,7 @@ const TAB_ICONS = {
 	bookOpen,
 };
 
-export function getNavTabsConfig( issuesCount = 0, pullsCount = 0 ) {
+function getNavTabsConfig( issuesCount = 0, pullsCount = 0 ) {
 	return [
 		{ id: TAB_IDS.CODE, label: 'Code', iconName: 'code' },
 		{ id: TAB_IDS.ISSUES, label: 'Issues', iconName: 'circleDot', badge: issuesCount },
@@ -25,7 +25,7 @@ export function getNavTabsConfig( issuesCount = 0, pullsCount = 0 ) {
 	];
 }
 
-export function NavTabs( activeTab ) {
+function NavTabs( activeTab ) {
 	const tabs = getNavTabsConfig( 0, 0 );
 
 	return `
@@ -53,5 +53,10 @@ export function NavTabs( activeTab ) {
 		</div>
 	`;
 }
+
+export {
+	getNavTabsConfig,
+	NavTabs,
+};
 
 export default NavTabs;

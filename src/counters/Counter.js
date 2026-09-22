@@ -5,7 +5,7 @@
  * @author prssbayu-oss
  */
 
-export class Counter {
+class Counter {
 	constructor( initialValue = 0 ) {
 		this.value = Math.max( 0, Number( initialValue ) || 0 );
 	}
@@ -30,4 +30,5 @@ export class Counter {
 	}
 }
 
+export { Counter };
 export default Counter;

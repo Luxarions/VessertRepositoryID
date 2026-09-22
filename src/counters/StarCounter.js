@@ -7,7 +7,7 @@
 
 import { Counter } from './Counter.js';
 
-export class StarCounter extends Counter {
+class StarCounter extends Counter {
 	constructor( initialValue = 0, isStarred = false ) {
 		super( initialValue );
 		this.isStarred = Boolean( isStarred );
@@ -25,9 +25,14 @@ export class StarCounter extends Counter {
 	}
 }
 
-export function calculateStarToggle( currentStars, isCurrentlyStarred ) {
+function calculateStarToggle( currentStars, isCurrentlyStarred ) {
 	const counter = new StarCounter( currentStars, isCurrentlyStarred );
 	return counter.toggle();
 }
+
+export {
+	StarCounter,
+	calculateStarToggle,
+};
 
 export default StarCounter;

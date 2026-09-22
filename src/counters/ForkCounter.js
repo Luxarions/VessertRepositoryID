@@ -6,7 +6,7 @@
 
 import { Counter } from './Counter.js';
 
-export class ForkCounter extends Counter {
+class ForkCounter extends Counter {
 	constructor( initialValue = 0 ) {
 		super( initialValue );
 	}
@@ -17,9 +17,14 @@ export class ForkCounter extends Counter {
 	}
 }
 
-export function calculateForkIncrement( currentForks ) {
+function calculateForkIncrement( currentForks ) {
 	const counter = new ForkCounter( currentForks );
 	return counter.increment();
 }
+
+export {
+	ForkCounter,
+	calculateForkIncrement,
+};
 
 export default ForkCounter;

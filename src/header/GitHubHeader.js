@@ -7,7 +7,7 @@
 import { ICON_SIZE, ICON_SIZE_XS } from '../constants.js';
 import { octocat, menu, search, inbox, gitPullRequest, circleDot } from '../icons.js';
 
-export function GitHubHeader() {
+function GitHubHeader() {
 	return `
 		<header class="bg-[#010409] border-b border-[#21262d] px-4 py-3 flex items-center justify-between">
 			<div class="flex items-center gap-3">
@@ -48,4 +48,5 @@ export function GitHubHeader() {
 	`;
 }
 
+export { GitHubHeader };
 export default GitHubHeader;

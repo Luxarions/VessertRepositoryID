@@ -9,7 +9,7 @@ import { arrowLeft, branch, chevronDown, play, more } from '../icons.js';
 
 const JS_FILE_REGEX = /\.(m?js|cjs)$/;
 
-export function FileViewerNavBar( state ) {
+function FileViewerNavBar( state ) {
 	const { selectedFile, repo } = state;
 	const isExecutable = JS_FILE_REGEX.test( selectedFile?.name || '' );
 	const defaultBranch = repo?.defaultBranch || 'main';
@@ -46,4 +46,5 @@ export function FileViewerNavBar( state ) {
 	`;
 }
 
+export { FileViewerNavBar };
 export default FileViewerNavBar;

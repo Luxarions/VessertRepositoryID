@@ -174,32 +174,60 @@ class OrchestratorEngine extends EventDispatcher {
 	}
 }
 
-export { OrchestratorEngine };
-export const Orchestrator = new OrchestratorEngine();
+const Orchestrator = new OrchestratorEngine();
 
-export const onStateChange = ( cb ) => Orchestrator.onStateChange( cb );
-export const notify = () => Orchestrator.notify();
-export const toggleStar = () => Orchestrator.toggleStar();
-export const toggleFork = () => Orchestrator.toggleFork();
-export const toggleWatch = () => Orchestrator.toggleWatch();
-export const setActiveTab = ( tab ) => Orchestrator.setActiveTab( tab );
-export const setCurrentBranch = ( branch ) => Orchestrator.setCurrentBranch( branch );
-export const openFile = ( path ) => Orchestrator.openFile( path );
-export const closeFile = () => Orchestrator.closeFile();
-export const navigateDir = ( dir ) => Orchestrator.navigateDir( dir );
-export const navigateUp = ( idx ) => Orchestrator.navigateUp( idx );
-export const navigateRoot = () => Orchestrator.navigateRoot();
-export const setPathSegments = ( segs ) => Orchestrator.setPathSegments( segs );
-export const toggleBranchDropdown = () => Orchestrator.toggleBranchDropdown();
-export const toggleCodeDropdown = () => Orchestrator.toggleCodeDropdown();
-export const setBranchSearchQuery = ( q ) => Orchestrator.setBranchSearchQuery( q );
-export const setActiveCloneTab = ( tab ) => Orchestrator.setActiveCloneTab( tab );
-export const setCopied = ( v ) => Orchestrator.setCopied( v );
-export const toggleSearchModal = () => Orchestrator.toggleSearchModal();
-export const toggleHistoryModal = () => Orchestrator.toggleHistoryModal();
-export const toggleConsole = () => Orchestrator.toggleConsole();
-export const toggleViewAllFiles = () => Orchestrator.toggleViewAllFiles();
-export const setActiveReadmeTab = ( tab ) => Orchestrator.setActiveReadmeTab( tab );
-export const runCurrentFileCode = () => Orchestrator.runCurrentFileCode();
+const onStateChange = ( cb ) => Orchestrator.onStateChange( cb );
+const notify = () => Orchestrator.notify();
+const toggleStar = () => Orchestrator.toggleStar();
+const toggleFork = () => Orchestrator.toggleFork();
+const toggleWatch = () => Orchestrator.toggleWatch();
+const setActiveTab = ( tab ) => Orchestrator.setActiveTab( tab );
+const setCurrentBranch = ( branch ) => Orchestrator.setCurrentBranch( branch );
+const openFile = ( path ) => Orchestrator.openFile( path );
+const closeFile = () => Orchestrator.closeFile();
+const navigateDir = ( dir ) => Orchestrator.navigateDir( dir );
+const navigateUp = ( idx ) => Orchestrator.navigateUp( idx );
+const navigateRoot = () => Orchestrator.navigateRoot();
+const setPathSegments = ( segs ) => Orchestrator.setPathSegments( segs );
+const toggleBranchDropdown = () => Orchestrator.toggleBranchDropdown();
+const toggleCodeDropdown = () => Orchestrator.toggleCodeDropdown();
+const setBranchSearchQuery = ( q ) => Orchestrator.setBranchSearchQuery( q );
+const setActiveCloneTab = ( tab ) => Orchestrator.setActiveCloneTab( tab );
+const setCopied = ( v ) => Orchestrator.setCopied( v );
+const toggleSearchModal = () => Orchestrator.toggleSearchModal();
+const toggleHistoryModal = () => Orchestrator.toggleHistoryModal();
+const toggleConsole = () => Orchestrator.toggleConsole();
+const toggleViewAllFiles = () => Orchestrator.toggleViewAllFiles();
+const setActiveReadmeTab = ( tab ) => Orchestrator.setActiveReadmeTab( tab );
+const runCurrentFileCode = () => Orchestrator.runCurrentFileCode();
+
+export {
+	OrchestratorEngine,
+	Orchestrator,
+	onStateChange,
+	notify,
+	toggleStar,
+	toggleFork,
+	toggleWatch,
+	setActiveTab,
+	setCurrentBranch,
+	openFile,
+	closeFile,
+	navigateDir,
+	navigateUp,
+	navigateRoot,
+	setPathSegments,
+	toggleBranchDropdown,
+	toggleCodeDropdown,
+	setBranchSearchQuery,
+	setActiveCloneTab,
+	setCopied,
+	toggleSearchModal,
+	toggleHistoryModal,
+	toggleConsole,
+	toggleViewAllFiles,
+	setActiveReadmeTab,
+	runCurrentFileCode,
+};
 
 export default Orchestrator;

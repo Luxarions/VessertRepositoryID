@@ -7,11 +7,11 @@
 import { ICON_SIZE_SMALL, ICON_SIZE_CHEVRON } from '../constants.js';
 import { eye, fork, star, chevronDown } from '../icons.js';
 
-export function getVisibilityLabel( isPrivate ) {
+function getVisibilityLabel( isPrivate ) {
 	return isPrivate ? 'Private' : 'Public';
 }
 
-export function RepoMeta( state ) {
+function RepoMeta( state ) {
 	const { repo, isStarred, isWatching } = state;
 	const visibility = getVisibilityLabel( repo.isPrivate );
 
@@ -57,5 +57,10 @@ export function RepoMeta( state ) {
 		</div>
 	`;
 }
+
+export {
+	getVisibilityLabel,
+	RepoMeta,
+};
 
 export default RepoMeta;

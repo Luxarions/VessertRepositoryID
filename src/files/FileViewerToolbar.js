@@ -7,7 +7,7 @@
 import { ICON_SIZE_SMALL } from '../constants.js';
 import { folder, people, code, more } from '../icons.js';
 
-export function FileViewerToolbar() {
+function FileViewerToolbar() {
 	return `
 		<div class="mx-4 my-2 flex items-center justify-between border-b border-[#21262d] pb-2">
 			<div class="inline-flex rounded-md border border-[#30363d] p-0.5 bg-[#0d1117]">
@@ -33,4 +33,5 @@ export function FileViewerToolbar() {
 	`;
 }
 
+export { FileViewerToolbar };
 export default FileViewerToolbar;

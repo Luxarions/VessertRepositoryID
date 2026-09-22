@@ -39,7 +39,7 @@ import { Footer } from '../footer/footer.js';
 import { SearchModal, CommitHistoryModal } from '../modals/modals.js';
 import { spark } from '../icons.js';
 
-export class RepoRenderer {
+class RepoRenderer {
 	/**
 	 * @param {HTMLElement} [container=null] Target DOM element to mount the repository UI
 	 */
@@ -319,7 +319,7 @@ export class RepoRenderer {
 // Global active renderer singleton instance
 let defaultRenderer = null;
 
-export function renderApp( root ) {
+function renderApp( root ) {
 	if ( ! defaultRenderer ) {
 		defaultRenderer = new RepoRenderer( root );
 	} else {
@@ -328,7 +328,7 @@ export function renderApp( root ) {
 	}
 }
 
-export function mountApp( rootElement ) {
+function mountApp( rootElement ) {
 	if ( ! defaultRenderer ) {
 		defaultRenderer = new RepoRenderer( rootElement );
 	} else {
@@ -336,5 +336,11 @@ export function mountApp( rootElement ) {
 	}
 	return defaultRenderer;
 }
+
+export {
+	RepoRenderer,
+	renderApp,
+	mountApp,
+};
 
 export default RepoRenderer;

@@ -6,7 +6,7 @@
 
 import { LOG_TYPES } from '../constants.js';
 
-export function createSandboxConsole( appendLog ) {
+function createSandboxConsole( appendLog ) {
 	return {
 		log: ( ...args ) => appendLog( LOG_TYPES.LOG, args.join( ' ' ) ),
 		info: ( ...args ) => appendLog( LOG_TYPES.INFO, args.join( ' ' ) ),
@@ -23,7 +23,7 @@ export function createSandboxConsole( appendLog ) {
 	};
 }
 
-export function executeCode( code, onLog ) {
+function executeCode( code, onLog ) {
 	const logs = [];
 
 	const appendLog = ( type, message ) => {
@@ -63,6 +63,11 @@ export function executeCode( code, onLog ) {
 
 	return logs;
 }
+
+export {
+	createSandboxConsole,
+	executeCode,
+};
 
 export default {
 	createSandboxConsole,

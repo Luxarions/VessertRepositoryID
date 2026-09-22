@@ -17,7 +17,7 @@ const BUILT_IN_REGEX = new RegExp(
 	'g'
 );
 
-export function highlightCode( rawCode, language = '' ) {
+function highlightCode( rawCode, language = '' ) {
 	const escaped = escapeHtml( rawCode );
 
 	if ( language === 'html' || /&lt;[\s\S]*?&gt;/.test( escaped ) ) {
@@ -41,4 +41,5 @@ export function highlightCode( rawCode, language = '' ) {
 		.replace( /\b(\d+)\b/g, '<span class="text-[#79c0ff]">$1</span>' );
 }
 
+export { highlightCode };
 export default highlightCode;

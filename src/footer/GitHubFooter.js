@@ -6,7 +6,7 @@
 
 import { octocat } from '../icons.js';
 
-export const FOOTER_LINKS = [
+const FOOTER_LINKS = [
 	{ label: 'Terms', href: '#' },
 	{ label: 'Privacy', href: '#' },
 	{ label: 'Security', href: '#' },
@@ -17,11 +17,11 @@ export const FOOTER_LINKS = [
 	{ label: 'Do not share my personal information', href: '#' },
 ];
 
-export function getFooterLinks() {
+function getFooterLinks() {
 	return [ ...FOOTER_LINKS ];
 }
 
-export function Footer() {
+function Footer() {
 	const links = getFooterLinks();
 
 	return `
@@ -39,5 +39,11 @@ export function Footer() {
 	`;
 }
 
-export { Footer as GitHubFooter };
+export {
+	FOOTER_LINKS,
+	getFooterLinks,
+	Footer,
+	Footer as GitHubFooter,
+};
+
 export default Footer;

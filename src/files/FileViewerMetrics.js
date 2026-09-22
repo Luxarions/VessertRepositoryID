@@ -4,7 +4,7 @@
  * @author prssbayu-oss
  */
 
-export function FileViewerMetrics( state ) {
+function FileViewerMetrics( state ) {
 	const { selectedFile } = state;
 	const lines = selectedFile?.content ? selectedFile.content.split( '\n' ) : [];
 	const lineCount = lines.length;
@@ -18,4 +18,5 @@ export function FileViewerMetrics( state ) {
 	`;
 }
 
+export { FileViewerMetrics };
 export default FileViewerMetrics;

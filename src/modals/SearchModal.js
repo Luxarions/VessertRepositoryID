@@ -9,7 +9,7 @@ import { ICON_SIZE, ICON_SIZE_XS } from '../constants.js';
 import { search, x } from '../icons.js';
 import { getFileIcon } from '../files/FileIcons.js';
 
-export class SearchModalClass extends Modal {
+class SearchModalClass extends Modal {
 	constructor() {
 		super( 'search-modal', 'File Quick Search' );
 	}
@@ -55,8 +55,13 @@ export class SearchModalClass extends Modal {
 
 const defaultSearchModal = new SearchModalClass();
 
-export function SearchModal( state ) {
+function SearchModal( state ) {
 	return defaultSearchModal.render( state );
 }
+
+export {
+	SearchModalClass,
+	SearchModal,
+};
 
 export default SearchModal;

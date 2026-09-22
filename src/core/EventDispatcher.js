@@ -5,7 +5,7 @@
  * @author prssbayu-oss
  */
 
-export class EventDispatcher {
+class EventDispatcher {
 	constructor() {
 		this._listeners = {};
 	}
@@ -47,4 +47,5 @@ export class EventDispatcher {
 	}
 }
 
+export { EventDispatcher };
 export default EventDispatcher;

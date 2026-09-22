@@ -6,7 +6,7 @@
 
 import { Counter } from './Counter.js';
 
-export class WatchCounter extends Counter {
+class WatchCounter extends Counter {
 	constructor( initialValue = 0, isWatching = false ) {
 		super( initialValue );
 		this.isWatching = Boolean( isWatching );
@@ -24,9 +24,14 @@ export class WatchCounter extends Counter {
 	}
 }
 
-export function calculateWatchToggle( currentWatchers, isCurrentlyWatching ) {
+function calculateWatchToggle( currentWatchers, isCurrentlyWatching ) {
 	const counter = new WatchCounter( currentWatchers, isCurrentlyWatching );
 	return counter.toggle();
 }
+
+export {
+	WatchCounter,
+	calculateWatchToggle,
+};
 
 export default WatchCounter;

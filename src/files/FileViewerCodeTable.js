@@ -6,7 +6,7 @@
 
 import { highlightCode } from './Highlight.js';
 
-export function FileViewerCodeTable( state ) {
+function FileViewerCodeTable( state ) {
 	const { selectedFile } = state;
 	const lines = selectedFile?.content ? selectedFile.content.split( '\n' ) : [];
 	const language = selectedFile?.language || '';
@@ -32,4 +32,5 @@ export function FileViewerCodeTable( state ) {
 	`;
 }
 
+export { FileViewerCodeTable };
 export default FileViewerCodeTable;

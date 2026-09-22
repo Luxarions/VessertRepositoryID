@@ -7,7 +7,7 @@
 import { FILE_TYPES } from '../constants.js';
 import { folder, fileCode, fileText, file } from '../icons.js';
 
-export function getFileIcon( item, size = 16 ) {
+function getFileIcon( item, size = 16 ) {
 	if ( item.type === FILE_TYPES.DIR ) {
 		return folder( size );
 	}
@@ -25,4 +25,5 @@ export function getFileIcon( item, size = 16 ) {
 	return file( size );
 }
 
+export { getFileIcon };
 export default getFileIcon;

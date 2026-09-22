@@ -7,7 +7,7 @@
 import { ICON_SIZE_SMALL } from '../constants.js';
 import { identicon, more, history } from '../icons.js';
 
-export function FileViewerCommitBar( state ) {
+function FileViewerCommitBar( state ) {
 	const { selectedFile, repo } = state;
 	const author = repo?.lastCommit?.author || 'Luxarions';
 	const modifiedTime = selectedFile?.lastModified || '12 minutes ago';
@@ -33,4 +33,5 @@ export function FileViewerCommitBar( state ) {
 	`;
 }
 
+export { FileViewerCommitBar };
 export default FileViewerCommitBar;

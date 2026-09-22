@@ -8,7 +8,7 @@ import { ICON_SIZE_SMALL, ICON_SIZE_CHEVRON, ICON_SIZE_XS } from '../constants.j
 import { branch, chevronDown, tag, history, code, copy, check, download, monitor } from '../icons.js';
 import { getHttpsCloneUrl, getCliCloneCommand } from './Clone.js';
 
-export function filterBranches( branches, query ) {
+function filterBranches( branches, query ) {
 	if ( ! query || query.trim() === '' ) {
 		return [ ...branches ];
 	}
@@ -16,7 +16,7 @@ export function filterBranches( branches, query ) {
 	return branches.filter( ( b ) => b.toLowerCase().includes( normalized ) );
 }
 
-export function BranchAndCodeBar( state ) {
+function BranchAndCodeBar( state ) {
 	const {
 		currentBranch,
 		repo,
@@ -130,5 +130,10 @@ export function BranchAndCodeBar( state ) {
 		</div>
 	`;
 }
+
+export {
+	filterBranches,
+	BranchAndCodeBar,
+};
 
 export default BranchAndCodeBar;
