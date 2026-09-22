@@ -89,11 +89,47 @@ const initialRepoData = {
 		{
 			name: 'index.html',
 			type: 'file',
-			lastModified: '1 minute ago',
+			lastModified: '12 minutes ago',
 			path: 'index.html',
-			size: '1.2 KB',
+			size: '1.22 KB',
 			language: 'html',
-			content: `<!doctype html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8" />\n    <title>Vessert</title>\n  </head>\n  <body>\n    <div id="root"></div>\n    <script type="module" src="/src/Vessert.js"></script>\n  </body>\n</html>\n`,
+			content: `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vessert</title>
+    <meta name="description" content="Pure Vanilla JavaScript GitHub repository UI library." />
+    <meta property="og:title" content="Vessert" />
+    <meta property="og:description" content="Pure Vanilla JavaScript GitHub repository UI library." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'casual-phone': [ 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif' ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import { mountApp } from '/src/Vessert.js';
+      const root = document.getElementById('root');
+      if (root) mountApp(root);
+    </script>
+  </body>
+</html>`,
 		},
 		{
 			name: 'metadata.json',

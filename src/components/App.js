@@ -244,6 +244,8 @@ function bindEvents( root ) {
 
 	// File viewer back button
 	root.querySelector( '#file-back-btn' )?.addEventListener( 'click', closeFile );
+	root.querySelector( '#file-breadcrumb-repo' )?.addEventListener( 'click', closeFile );
+	root.querySelector( '#file-history-btn' )?.addEventListener( 'click', toggleHistoryModal );
 
 	// File viewer copy button
 	root.querySelector( '#file-copy-btn' )?.addEventListener( 'click', () => {
