@@ -1,11 +1,66 @@
-<div align="center">
+# Vessert
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Pure Vanilla JavaScript GitHub repository UI library.
 
-  <h1>Built with AI Studio</h2>
+## Install
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+```bash
+npm install vessert
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+Usage
 
-</div>
+Full library (engine + UI):
+
+```js
+import { mountApp } from 'vessert';
+
+const root = document.getElementById( 'root' );
+mountApp( root );
+```
+
+Engine only (Node.js, CLI, tests):
+
+```js
+import { calculateStarToggle, escapeHtml } from 'vessert/core';
+```
+
+UI only (browser):
+
+```js
+import { FileList } from 'vessert/ui';
+```
+
+Development
+
+Clone the repo, then serve the project root with any static server:
+
+```bash
+# Option 1 — Python (built-in)
+python3 -m http.server 3000
+
+# Option 2 — Node.js
+npx serve .
+```
+
+Then open http://localhost:3000/examples/basic.html.
+
+No build step. No transpile. No bundler. src/ is shipped as-is.
+
+Structure
+
+· examples/ — HTML demos (not published to npm)
+· src/ — JavaScript source (pure JS, ES modules)
+· src/engine/ — Pure logic (no DOM)
+· src/components/ — DOM components
+
+Conventions:
+
+· No index.js anywhere — barrels are folder.js next to folder/.
+· One topic per file.
+· Dependencies flow one way: Constants → Utils → engine → components.
+· VessertCore.js is DOM-free; VessertUi.js requires a browser.
+
+License
+
+MIT

@@ -1,0 +1,35 @@
+{
+  "name": "vessert",
+  "version": "0.1.0",
+  "description": "Pure Vanilla JavaScript GitHub repository UI library.",
+  "type": "module",
+  "sideEffects": false,
+  "author": "prssbayu-oss",
+  "license": "MIT",
+  "files": [
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./src/Vessert.js",
+  "module": "./src/Vessert.js",
+  "exports": {
+    ".": "./src/Vessert.js",
+    "./core": "./src/VessertCore.js",
+    "./ui": "./src/VessertUi.js"
+  },
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist server.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}
