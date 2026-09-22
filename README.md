@@ -40,12 +40,15 @@ src/
 ├── constants.js          # Global constants
 ├── utils.js              # Pure utilities
 ├── icons.js              # Procedural SVG icons
-├── App.js                # Main application renderer & event binder
 ├── Vessert.js            # Main entry point (Three.js style)
 ├── Vessert.Core.js       # Headless core export alias
 ├── VessertCore.js        # Headless core entry point
 ├── Vessert.Ui.js         # UI component export alias
 ├── VessertUi.js          # UI component entry point
+│
+├── renderers/            # Three.js-style renderers
+│   ├── RepoRenderer.js   # Full repository UI renderer & lifecycle
+│   └── renderers.js
 │
 ├── core/                 # EventDispatcher, State, Orchestrator
 │   ├── EventDispatcher.js

@@ -11,4 +11,4 @@ export * from './repo/repo.js';
 export * from './files/files.js';
 export * from './modals/modals.js';
 export * from './footer/footer.js';
-export * from './App.js';
+export * from './renderers/renderers.js';

@@ -171,13 +171,13 @@ const initialRepoData = {
 			content: `export * from './icons/octocat.js';\n`,
 		},
 		{
-			name: 'App.js',
+			name: 'RepoRenderer.js',
 			type: 'file',
 			lastModified: '1 minute ago',
-			path: 'src/App.js',
-			size: '7.8 KB',
+			path: 'src/renderers/RepoRenderer.js',
+			size: '8.2 KB',
 			language: 'javascript',
-			content: `export function renderApp( root ) { /* ... */ }\nexport function mountApp( root ) { /* ... */ }\n`,
+			content: `export class RepoRenderer {\n  constructor( container ) {}\n  render() {}\n  mount( container ) {}\n}\n`,
 		},
 		{
 			name: 'Vessert.js',
@@ -186,7 +186,7 @@ const initialRepoData = {
 			path: 'src/Vessert.js',
 			size: '850 B',
 			language: 'javascript',
-			content: `export * from './VessertCore.js';\nexport * from './VessertUi.js';\nexport { mountApp } from './App.js';\n`,
+			content: `export * from './VessertCore.js';\nexport * from './VessertUi.js';\nexport { RepoRenderer, mountApp } from './renderers/renderers.js';\n`,
 		},
 		{
 			name: 'VessertCore.js',
