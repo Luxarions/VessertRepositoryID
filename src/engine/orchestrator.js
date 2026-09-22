@@ -210,7 +210,35 @@ function runCurrentFileCode() {
 
 }
 
+const Orchestrator = {
+	onStateChange,
+	notify,
+	toggleStar,
+	toggleFork,
+	toggleWatch,
+	setActiveTab,
+	setCurrentBranch,
+	openFile,
+	closeFile,
+	navigateDir,
+	navigateUp,
+	navigateRoot,
+	setPathSegments,
+	toggleBranchDropdown,
+	toggleCodeDropdown,
+	setBranchSearchQuery,
+	setActiveCloneTab,
+	setCopied,
+	toggleSearchModal,
+	toggleHistoryModal,
+	toggleConsole,
+	toggleViewAllFiles,
+	setActiveReadmeTab,
+	runCurrentFileCode,
+};
+
 export {
+	Orchestrator,
 	onStateChange,
 	notify,
 	toggleStar,

@@ -26,7 +26,7 @@ function RepoMeta( state ) {
 
       <div class="flex items-center gap-2 flex-wrap text-xs">
         <div class="inline-flex rounded-md shadow-xs border border-[#30363d] overflow-hidden">
-          <button id="watch-btn" class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] font-medium px-2.5 py-1.5 flex items-center gap-1.5 transition-colors">
+          <button id="watch-btn" class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] font-medium px-2.5 py-1.5 flex items-center gap-1.5 transition-colors cursor-pointer">
             ${ eye( ICON_SIZE_SMALL ) }
             <span>${ isWatching ? 'Unwatch' : 'Watch' }</span>
             <span class="bg-[#30363d] text-[#7d8590] text-[10px] px-1.5 py-0.5 rounded-full font-semibold">${ repo.watching }</span>
@@ -34,7 +34,7 @@ function RepoMeta( state ) {
         </div>
 
         <div class="inline-flex rounded-md shadow-xs border border-[#30363d] overflow-hidden">
-          <button id="fork-btn" class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] font-medium px-2.5 py-1.5 flex items-center gap-1.5 transition-colors">
+          <button id="fork-btn" class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] font-medium px-2.5 py-1.5 flex items-center gap-1.5 transition-colors cursor-pointer">
             ${ fork( ICON_SIZE_SMALL ) }
             <span>Fork</span>
             <span class="bg-[#30363d] text-[#7d8590] text-[10px] px-1.5 py-0.5 rounded-full font-semibold">${ repo.forks }</span>
@@ -42,12 +42,12 @@ function RepoMeta( state ) {
         </div>
 
         <div class="inline-flex rounded-md shadow-xs border border-[#30363d] overflow-hidden">
-          <button id="star-btn" class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] font-medium px-2.5 py-1.5 flex items-center gap-1.5 transition-colors">
+          <button id="star-btn" class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] font-medium px-2.5 py-1.5 flex items-center gap-1.5 transition-colors cursor-pointer">
             ${ star( ICON_SIZE_SMALL, isStarred ) }
             <span>${ isStarred ? 'Starred' : 'Star' }</span>
             <span class="bg-[#30363d] text-[#7d8590] text-[10px] px-1.5 py-0.5 rounded-full font-semibold">${ repo.stars }</span>
           </button>
-          <button class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] px-1.5 py-1.5 border-l border-[#30363d] transition-colors">
+          <button class="bg-[#21262d] hover:bg-[#30363d] text-[#f0f6fc] px-1.5 py-1.5 border-l border-[#30363d] transition-colors cursor-pointer">
             ${ chevronDown( ICON_SIZE_CHEVRON ) }
           </button>
         </div>

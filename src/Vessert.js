@@ -1,8 +1,8 @@
 /**
  * @module Vessert
- * @description Primary entry point for the Vessert library, re-exporting all core logic and UI components.
+ * @description Primary entry point for the Vessert library.
  * @author prssbayu-oss
  */
 
-export * from './VessertCore.js';
-export * from './VessertUi.js';
+export * from './index.js';
+export { default } from './index.js';
