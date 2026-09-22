@@ -338,7 +338,19 @@ function bindEvents( root ) {
 	// View all files button - toggles all files and scrolls based on existing files/folders
 	root.querySelector( '#view-all-files-btn' )?.addEventListener( 'click', () => {
 
+		const wasShowingAll = state.viewAllFiles;
 		toggleViewAllFiles();
+
+		if ( ! wasShowingAll ) {
+
+			requestAnimationFrame( () => {
+
+				const fileCard = root.querySelector( '#repo-file-list-card' );
+				fileCard?.scrollIntoView( { behavior: 'smooth', block: 'nearest' } );
+
+			} );
+
+		}
 
 	} );
 
