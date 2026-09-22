@@ -12,10 +12,10 @@
     "README.md",
     "LICENSE"
   ],
-  "main": "./src/index.js",
-  "module": "./src/index.js",
+  "main": "./src/Vessert.js",
+  "module": "./src/Vessert.js",
   "exports": {
-    ".": "./src/index.js",
+    ".": "./src/Vessert.js",
     "./core": "./src/VessertCore.js",
     "./ui": "./src/VessertUi.js"
   },

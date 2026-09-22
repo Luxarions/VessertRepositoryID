@@ -1,4 +1,4 @@
-import { ICON_STROKE_WIDTH } from '../Constants.js';
+import { ICON_STROKE_WIDTH } from '../constants.js';
 
 export default ( size, filled = false, className = '' ) => `
   <svg width="${ size }" height="${ size }" viewBox="0 0 24 24" fill="${ filled ? '#e3b341' : 'none' }" stroke="${ filled ? '#e3b341' : 'currentColor' }" stroke-width="${ ICON_STROKE_WIDTH }" stroke-linecap="round" stroke-linejoin="round" class="${ className }">

@@ -1,6 +1,6 @@
 /**
  * @module Data/RepoData
- * @description Repository demo data.
+ * @description Repository demo data modeling the authentic Three.js-inspired file tree and commit history.
  * @author prssbayu-oss
  */
 
@@ -18,34 +18,41 @@ const initialRepoData = {
 	lastCommit: {
 		author: 'prssbayu-oss',
 		date: '1 minute ago',
-		message: 'feat: add GridHelper and scrollable file view support',
-		hash: 'a9f24b1',
+		message: 'refactor: total domain overhaul with clean Three.js OOP architecture',
+		hash: 'c83b10e',
 	},
 	commits: [
+		{
+			hash: 'c83b10e',
+			message: 'refactor: total domain overhaul with clean Three.js OOP architecture',
+			author: 'prssbayu-oss',
+			date: '1 minute ago',
+			verified: true,
+		},
 		{
 			hash: 'a9f24b1',
 			message: 'feat: add GridHelper and scrollable file view support',
 			author: 'prssbayu-oss',
-			date: '1 minute ago',
+			date: '10 minutes ago',
 			verified: true,
 		},
 		{
 			hash: 'e83a21b',
 			message: 'refactor: enforce strict architectural doors and zero runtime dependencies',
 			author: 'prssbayu-oss',
-			date: '10 minutes ago',
+			date: '1 hour ago',
 			verified: true,
 		},
 		{
 			hash: '7f9c2d1',
 			message: 'feat: add vanilla GitHub UI library components and engine',
 			author: 'prssbayu-oss',
-			date: '1 hour ago',
+			date: '2 hours ago',
 			verified: true,
 		},
 	],
 	files: [
-		// Directories
+		// Top-level directories
 		{
 			name: 'examples',
 			type: 'dir',
@@ -58,7 +65,8 @@ const initialRepoData = {
 			lastModified: '1 minute ago',
 			path: 'src',
 		},
-		// Root files
+
+		// Root repository files
 		{
 			name: '.gitignore',
 			type: 'file',
@@ -89,47 +97,11 @@ const initialRepoData = {
 		{
 			name: 'index.html',
 			type: 'file',
-			lastModified: '12 minutes ago',
+			lastModified: '1 minute ago',
 			path: 'index.html',
 			size: '1.22 KB',
 			language: 'html',
-			content: `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vessert</title>
-    <meta name="description" content="Pure Vanilla JavaScript GitHub repository UI library." />
-    <meta property="og:title" content="Vessert" />
-    <meta property="og:description" content="Pure Vanilla JavaScript GitHub repository UI library." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              'casual-phone': [ 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif' ],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module">
-      import { mountApp } from '/src/Vessert.js';
-      const root = document.getElementById('root');
-      if (root) mountApp(root);
-    </script>
-  </body>
-</html>`,
+			content: `<!doctype html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8" />\n    <title>Vessert</title>\n  </head>\n  <body class="bg-[#0d1117] text-[#c9d1d9]">\n    <div id="root"></div>\n    <script type="module">\n      import { mountApp } from '/src/Vessert.js';\n      mountApp( document.getElementById('root') );\n    </script>\n  </body>\n</html>`,
 		},
 		{
 			name: 'metadata.json',
@@ -149,15 +121,7 @@ const initialRepoData = {
 			language: 'json',
 			content: `{\n  "name": "vessert",\n  "version": "0.1.0",\n  "type": "module",\n  "main": "src/Vessert.js",\n  "exports": {\n    ".": "./src/Vessert.js",\n    "./core": "./src/VessertCore.js",\n    "./ui": "./src/VessertUi.js"\n  }\n}\n`,
 		},
-		{
-			name: 'tsconfig.json',
-			type: 'file',
-			lastModified: '1 minute ago',
-			path: 'tsconfig.json',
-			size: '520 B',
-			language: 'json',
-			content: `{\n  "compilerOptions": {\n    "target": "ES2022",\n    "module": "ESNext",\n    "moduleResolution": "bundler"\n  }\n}\n`,
-		},
+
 		// Nested files: examples
 		{
 			name: 'basic.html',
@@ -168,51 +132,34 @@ const initialRepoData = {
 			language: 'html',
 			content: `<!doctype html>\n<html>\n<head><title>Vessert Basic Example</title></head>\n<body>\n  <div id="root"></div>\n  <script type="module">\n    import { mountApp } from '../src/Vessert.js';\n    mountApp( document.getElementById('root') );\n  </script>\n</body>\n</html>\n`,
 		},
-		// Nested files: src
 		{
-			name: 'Constants.js',
+			name: 'oop_inheritance.html',
 			type: 'file',
 			lastModified: '1 minute ago',
-			path: 'src/Constants.js',
+			path: 'examples/oop_inheritance.html',
+			size: '1.4 KB',
+			language: 'html',
+			content: `<!-- Demonstrates class inheritance hierarchy across Counter, Modal, and EventDispatcher -->`,
+		},
+
+		// Nested files: src root
+		{
+			name: 'constants.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/constants.js',
 			size: '1.4 KB',
 			language: 'javascript',
 			content: `export const VERSION = '0.1.0';\nexport const DEFAULT_BRANCH = 'main';\n`,
 		},
 		{
-			name: 'Utils.js',
+			name: 'utils.js',
 			type: 'file',
 			lastModified: '1 minute ago',
-			path: 'src/Utils.js',
+			path: 'src/utils.js',
 			size: '1.1 KB',
 			language: 'javascript',
 			content: `export function escapeHtml( str ) { return str.replace(/&/g, '&amp;'); }\n`,
-		},
-		{
-			name: 'Vessert.js',
-			type: 'file',
-			lastModified: '1 minute ago',
-			path: 'src/Vessert.js',
-			size: '850 B',
-			language: 'javascript',
-			content: `export * from './VessertCore.js';\nexport * from './VessertUi.js';\n`,
-		},
-		{
-			name: 'VessertCore.js',
-			type: 'file',
-			lastModified: '1 minute ago',
-			path: 'src/VessertCore.js',
-			size: '620 B',
-			language: 'javascript',
-			content: `export * from './engine/orchestrator.js';\nexport * from './engine/state.js';\n`,
-		},
-		{
-			name: 'VessertUi.js',
-			type: 'file',
-			lastModified: '1 minute ago',
-			path: 'src/VessertUi.js',
-			size: '620 B',
-			language: 'javascript',
-			content: `export { mountApp } from './components/App.js';\nexport { GridHelper } from './components/repo/GridHelper.js';\n`,
 		},
 		{
 			name: 'icons.js',
@@ -227,39 +174,131 @@ const initialRepoData = {
 			name: 'App.js',
 			type: 'file',
 			lastModified: '1 minute ago',
-			path: 'src/components/App.js',
-			size: '8.4 KB',
+			path: 'src/App.js',
+			size: '7.8 KB',
 			language: 'javascript',
-			content: `export function App( state ) { return '...'; }\n`,
+			content: `export function renderApp( root ) { /* ... */ }\nexport function mountApp( root ) { /* ... */ }\n`,
 		},
 		{
-			name: 'GridHelper.js',
+			name: 'Vessert.js',
 			type: 'file',
 			lastModified: '1 minute ago',
-			path: 'src/components/repo/GridHelper.js',
-			size: '5.2 KB',
+			path: 'src/Vessert.js',
+			size: '850 B',
 			language: 'javascript',
-			content: `export function GridHelper( state ) { return '...'; }\n`,
+			content: `export * from './VessertCore.js';\nexport * from './VessertUi.js';\nexport { mountApp } from './App.js';\n`,
 		},
+		{
+			name: 'VessertCore.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/VessertCore.js',
+			size: '620 B',
+			language: 'javascript',
+			content: `export * from './core/core.js';\nexport * from './counters/counters.js';\n`,
+		},
+		{
+			name: 'VessertUi.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/VessertUi.js',
+			size: '620 B',
+			language: 'javascript',
+			content: `export * from './header/header.js';\nexport * from './repo/repo.js';\nexport * from './files/files.js';\n`,
+		},
+
+		// Nested files: src/core
+		{
+			name: 'EventDispatcher.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/core/EventDispatcher.js',
+			size: '1.2 KB',
+			language: 'javascript',
+			content: `export class EventDispatcher {\n  addEventListener( type, listener ) {}\n  dispatchEvent( event ) {}\n}\n`,
+		},
+		{
+			name: 'State.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/core/State.js',
+			size: '1.5 KB',
+			language: 'javascript',
+			content: `export const state = { /* ... */ };\n`,
+		},
+		{
+			name: 'Orchestrator.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/core/Orchestrator.js',
+			size: '4.8 KB',
+			language: 'javascript',
+			content: `export class OrchestratorController extends EventDispatcher { /* ... */ }\n`,
+		},
+
+		// Nested files: src/counters
+		{
+			name: 'Counter.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/counters/Counter.js',
+			size: '1.1 KB',
+			language: 'javascript',
+			content: `export class Counter {\n  constructor( initialValue = 0 ) { this.value = initialValue; }\n}\n`,
+		},
+		{
+			name: 'StarCounter.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/counters/StarCounter.js',
+			size: '1.3 KB',
+			language: 'javascript',
+			content: `export class StarCounter extends Counter {\n  toggle() { /* ... */ }\n}\n`,
+		},
+
+		// Nested files: src/modals
+		{
+			name: 'Modal.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/modals/Modal.js',
+			size: '1.4 KB',
+			language: 'javascript',
+			content: `export class Modal {\n  renderShell( options ) { /* ... */ }\n}\n`,
+		},
+
+		// Nested files: src/files
 		{
 			name: 'FileList.js',
 			type: 'file',
 			lastModified: '1 minute ago',
-			path: 'src/components/files/FileList.js',
-			size: '3.8 KB',
+			path: 'src/files/FileList.js',
+			size: '3.6 KB',
 			language: 'javascript',
-			content: `export function FileList( state ) { return '...'; }\n`,
+			content: `export function FileList( state ) { /* ... */ }\n`,
 		},
 		{
 			name: 'FileViewer.js',
 			type: 'file',
 			lastModified: '1 minute ago',
-			path: 'src/components/files/FileViewer.js',
-			size: '4.1 KB',
+			path: 'src/files/FileViewer.js',
+			size: '2.8 KB',
 			language: 'javascript',
-			content: `export function FileViewer( state ) { return '...'; }\n`,
+			content: `export function FileViewer( state ) { /* ... */ }\n`,
+		},
+
+		// Nested files: src/repo
+		{
+			name: 'GridHelper.js',
+			type: 'file',
+			lastModified: '1 minute ago',
+			path: 'src/repo/GridHelper.js',
+			size: '4.2 KB',
+			language: 'javascript',
+			content: `export function GridHelper( state ) { /* ... */ }\n`,
 		},
 	],
 };
 
 export { initialRepoData };
+export default initialRepoData;

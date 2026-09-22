@@ -1,0 +1,38 @@
+{
+  "Core & Engine": [
+    {
+      "name": "headless_core",
+      "title": "Headless Core Engine",
+      "file": "headless_core.html",
+      "desc": "Testing state machine, subscriber pattern, and counters without UI rendering"
+    },
+    {
+      "name": "oop_inheritance",
+      "title": "OOP Inheritance Hierarchy",
+      "file": "oop_inheritance.html",
+      "desc": "Demonstrating class inheritance hierarchy across Counter, Modal, and EventDispatcher"
+    }
+  ],
+  "Components": [
+    {
+      "name": "basic",
+      "title": "Full GitHub Repository",
+      "file": "basic.html",
+      "desc": "Complete repository UI with file explorer, clone modal, star counter, and commit history"
+    },
+    {
+      "name": "code_viewer",
+      "title": "Standalone Code Viewer",
+      "file": "code_viewer.html",
+      "desc": "Isolated FileViewer component with JavaScript runner and real-time console"
+    }
+  ],
+  "Assets & Shaders": [
+    {
+      "name": "icons_gallery",
+      "title": "Procedural Icons Gallery",
+      "file": "icons_gallery.html",
+      "desc": "Interactive catalog of all 33 SVG icon functions generated purely with JavaScript"
+    }
+  ]
+}

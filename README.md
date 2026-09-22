@@ -1,6 +1,6 @@
 # Vessert
 
-Pure Vanilla JavaScript GitHub repository UI library.
+Pure Vanilla JavaScript GitHub repository UI library with Three.js-inspired modular architecture and clean OOP inheritance hierarchies.
 
 ## Install
 
@@ -8,9 +8,9 @@ Pure Vanilla JavaScript GitHub repository UI library.
 npm install vessert
 ```
 
-Usage
+## Usage
 
-Full library (engine + UI):
+### Full Library (Application UI + Reactive Core):
 
 ```js
 import { mountApp } from 'vessert';
@@ -19,48 +19,99 @@ const root = document.getElementById( 'root' );
 mountApp( root );
 ```
 
-Engine only (Node.js, CLI, tests):
+### Headless Core (DOM-free for Node.js, CLI, testing):
 
 ```js
-import { calculateStarToggle, escapeHtml } from 'vessert/core';
+import { Orchestrator, Counter, StarCounter, EventDispatcher } from 'vessert/core';
 ```
 
-UI only (browser):
+### UI Component Layer (Browser):
 
 ```js
-import { FileList } from 'vessert/ui';
+import { FileList, FileViewer, GitHubHeader, GridHelper } from 'vessert/ui';
 ```
 
-Development
+## Architecture & Domain Hierarchy
 
-Clone the repo, then serve the project root with any static server:
+Modeled after Three.js structure:
+
+```text
+src/
+├── constants.js          # Global constants
+├── utils.js              # Pure utilities
+├── icons.js              # Procedural SVG icons
+├── App.js                # Main application renderer & event binder
+├── Vessert.js            # Main entry point (Three.js style)
+├── Vessert.Core.js       # Headless core export alias
+├── VessertCore.js        # Headless core entry point
+├── Vessert.Ui.js         # UI component export alias
+├── VessertUi.js          # UI component entry point
+│
+├── core/                 # EventDispatcher, State, Orchestrator
+│   ├── EventDispatcher.js
+│   ├── State.js
+│   ├── Orchestrator.js
+│   └── core.js
+│
+├── counters/             # OOP Counter inheritance (Counter -> StarCounter, etc.)
+│   ├── Counter.js
+│   ├── StarCounter.js
+│   ├── ForkCounter.js
+│   ├── WatchCounter.js
+│   └── counters.js
+│
+├── modals/               # OOP Modal inheritance (Modal -> SearchModal, etc.)
+│   ├── Modal.js
+│   ├── SearchModal.js
+│   ├── CommitHistoryModal.js
+│   └── modals.js
+│
+├── header/               # Header & Navigation
+│   ├── GitHubHeader.js
+│   ├── NavTabs.js
+│   └── header.js
+│
+├── repo/                 # Repository metadata, branches, clone, grid
+│   ├── RepoMeta.js
+│   ├── BranchAndCodeBar.js
+│   ├── Clone.js
+│   ├── RepoDetailSections.js
+│   ├── GridHelper.js
+│   └── repo.js
+│
+├── files/                # File explorer, syntax highlighter, code runner
+│   ├── FileTree.js
+│   ├── FileIcons.js
+│   ├── Highlight.js
+│   ├── CodeRunner.js
+│   ├── FileList.js
+│   ├── FileViewer.js
+│   └── files.js
+│
+├── footer/               # Footer component & links
+│   ├── Footer.js
+│   └── footer.js
+│
+├── data/                 # Mock repository dataset
+│   └── repoData.js
+│
+└── icons/                # 33 procedural SVG icon modules
+```
+
+## Development
+
+Serve the project root with any static server:
 
 ```bash
-# Option 1 — Python (built-in)
+# Option 1 — Python
 python3 -m http.server 3000
 
 # Option 2 — Node.js
 npx serve .
 ```
 
-Then open http://localhost:3000/examples/basic.html.
+No build step required. No runtime dependencies. `src/` is pure vanilla JavaScript ES modules.
 
-No build step. No transpile. No bundler. src/ is shipped as-is.
-
-Structure
-
-· examples/ — HTML demos (not published to npm)
-· src/ — JavaScript source (pure JS, ES modules)
-· src/engine/ — Pure logic (no DOM)
-· src/components/ — DOM components
-
-Conventions:
-
-· No index.js anywhere — barrels are folder.js next to folder/.
-· One topic per file.
-· Dependencies flow one way: Constants → Utils → engine → components.
-· VessertCore.js is DOM-free; VessertUi.js requires a browser.
-
-License
+## License
 
 MIT

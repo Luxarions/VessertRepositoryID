@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Vessert — Headless Core & Orchestrator Example</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0d1117] text-[#c9d1d9] min-h-screen p-6 font-sans">
+	<div class="max-w-4xl mx-auto space-y-6">
+		<header class="flex items-center justify-between border-b border-[#30363d] pb-4">
+			<div>
+				<h1 class="text-xl font-bold text-white flex items-center gap-2">
+					<span class="text-purple-400">Vessert</span> / Headless Core Engine
+				</h1>
+				<p class="text-xs text-[#8b949e]">Menguji komputasi murni tanpa rendering DOM visual dari <code>src/VessertCore.js</code>.</p>
+			</div>
+			<a href="./index.html" class="text-xs px-3 py-1.5 bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] rounded text-white transition">
+				← Katalog Contoh
+			</a>
+		</header>
+
+		<!-- Interactive Controllers -->
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<button id="btn-star" class="p-3 bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] rounded text-sm text-left transition flex justify-between items-center">
+				<span>Toggle Star</span>
+				<span id="star-count" class="px-2 py-0.5 bg-[#30363d] rounded text-xs font-mono">0</span>
+			</button>
+			<button id="btn-fork" class="p-3 bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] rounded text-sm text-left transition flex justify-between items-center">
+				<span>Trigger Fork</span>
+				<span id="fork-count" class="px-2 py-0.5 bg-[#30363d] rounded text-xs font-mono">0</span>
+			</button>
+			<button id="btn-branch" class="p-3 bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] rounded text-sm text-left transition flex justify-between items-center">
+				<span>Switch Branch</span>
+				<span id="current-branch" class="px-2 py-0.5 bg-[#30363d] rounded text-xs font-mono">main</span>
+			</button>
+		</div>
+
+		<!-- Live State Terminal -->
+		<div class="bg-[#161b22] border border-[#30363d] rounded-lg p-4 font-mono text-xs space-y-2">
+			<div class="text-[#8b949e] border-b border-[#30363d] pb-2 font-bold flex justify-between">
+				<span>LOG PERISTIWA STATE (Headless Subscription):</span>
+				<span class="text-emerald-400">● LIVE</span>
+			</div>
+			<pre id="log-output" class="h-64 overflow-y-auto text-gray-300 leading-relaxed"></pre>
+		</div>
+	</div>
+
+	<script type="module">
+		import { Orchestrator, OrchestratorEngine } from '../src/VessertCore.js';
+
+		const orchestrator = OrchestratorEngine ? new OrchestratorEngine() : ( typeof Orchestrator === 'function' ? new Orchestrator() : Orchestrator );
+		const logEl = document.getElementById('log-output');
+		const starCount = document.getElementById('star-count');
+		const forkCount = document.getElementById('fork-count');
+		const branchEl = document.getElementById('current-branch');
+
+		function log(msg) {
+			const time = new Date().toLocaleTimeString();
+			logEl.textContent += `[${time}] ${msg}\n`;
+			logEl.scrollTop = logEl.scrollHeight;
+		}
+
+		orchestrator.subscribe((state) => {
+			starCount.textContent = state.stars;
+			forkCount.textContent = state.forks;
+			branchEl.textContent = state.currentBranch;
+			log(`State diperbarui -> Stars: ${state.stars}, Forks: ${state.forks}, Branch: ${state.currentBranch}`);
+		});
+
+		// Trigger initial state
+		orchestrator.notify();
+
+		document.getElementById('btn-star').addEventListener('click', () => {
+			orchestrator.toggleStar();
+		});
+
+		document.getElementById('btn-fork').addEventListener('click', () => {
+			orchestrator.toggleFork();
+		});
+
+		document.getElementById('btn-branch').addEventListener('click', () => {
+			const current = orchestrator.state.currentBranch;
+			const next = current === 'main' ? 'dev' : 'main';
+			orchestrator.setBranch(next);
+		});
+	</script>
+</body>
+</html>
