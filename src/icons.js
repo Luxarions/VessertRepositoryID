@@ -38,6 +38,9 @@ import pencil from './icons/pencil.js';
 import spark from './icons/spark.js';
 import x from './icons/x.js';
 import identicon from './icons/identicon.js';
+import link from './icons/link.js';
+import people from './icons/people.js';
+import listUnordered from './icons/listUnordered.js';
 
 export {
 	octocat,
@@ -74,4 +77,7 @@ export {
 	spark,
 	x,
 	identicon,
+	link,
+	people,
+	listUnordered,
 };

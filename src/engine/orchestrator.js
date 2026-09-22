@@ -178,6 +178,13 @@ function toggleConsole() {
 
 }
 
+function setActiveReadmeTab( tab ) {
+
+	state.activeReadmeTab = tab;
+	notify();
+
+}
+
 function runCurrentFileCode() {
 
 	if ( ! state.selectedFile ) return;
@@ -218,5 +225,6 @@ export {
 	toggleSearchModal,
 	toggleHistoryModal,
 	toggleConsole,
+	setActiveReadmeTab,
 	runCurrentFileCode,
 };

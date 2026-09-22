@@ -81,6 +81,10 @@ function FileList( state ) {
 			)
 			.join( '' ) }
       </div>
+
+      <div class="bg-[#161b22] px-4 py-2.5 text-center border-t border-[#30363d]">
+        <button id="view-all-files-btn" class="text-xs text-[#58a6ff] hover:underline font-medium">View all files</button>
+      </div>
     </div>
   `;
 

@@ -26,11 +26,12 @@ import {
 	toggleSearchModal,
 	toggleHistoryModal,
 	toggleConsole,
+	setActiveReadmeTab,
 	runCurrentFileCode,
 } from '../engine/orchestrator.js';
 import { COPY_FEEDBACK_MS, TAB_IDS, DEFAULT_TEMPLATE_REPO } from '../Constants.js';
 import { GitHubHeader, NavTabs } from './header.js';
-import { RepoMeta, BranchAndCodeBar, RepoDetailSections } from './repo.js';
+import { RepoMeta, BranchAndCodeBar, RepoDetailSections, GridHelper } from './repo.js';
 import { FileList, FileViewer } from './files.js';
 import { SearchModal, CommitHistoryModal } from './modals.js';
 import { getFooterLinks } from '../engine/bottombar.js';
@@ -83,14 +84,7 @@ function renderApp( root ) {
 
           ${ BranchAndCodeBar( state ) }
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div class="lg:col-span-8">
-              ${ state.selectedFile ? FileViewer( state ) : FileList( state ) }
-            </div>
-            <div class="lg:col-span-4">
-              ${ RepoDetailSections( state ) }
-            </div>
-          </div>
+          ${ GridHelper( state ) }
         `
 		: `
           <div class="border border-[#30363d] rounded-md p-12 text-center my-8 bg-[#161b22]">
@@ -296,6 +290,44 @@ function bindEvents( root ) {
 	root.querySelector( '#history-modal-backdrop' )?.addEventListener( 'click', ( e ) => {
 
 		if ( e.target.id === 'history-modal-backdrop' ) toggleHistoryModal();
+
+	} );
+
+	// Readme tabs toggle (README / MIT license)
+	root.querySelectorAll( '.readme-tab-btn' ).forEach( ( btn ) => {
+
+		btn.addEventListener( 'click', () => {
+
+			const tab = btn.dataset.readmeTab;
+			if ( tab ) setActiveReadmeTab( tab );
+
+		} );
+
+	} );
+
+	// Copy snippet buttons in Readme
+	root.querySelectorAll( '.copy-snippet-btn' ).forEach( ( btn ) => {
+
+		btn.addEventListener( 'click', () => {
+
+			const text = btn.dataset.copyText;
+
+			if ( text ) {
+
+				navigator.clipboard?.writeText( text );
+				setCopied( true );
+				setTimeout( () => setCopied( false ), COPY_FEEDBACK_MS );
+
+			}
+
+		} );
+
+	} );
+
+	// View all files button (scrolls or opens search)
+	root.querySelector( '#view-all-files-btn' )?.addEventListener( 'click', () => {
+
+		toggleSearchModal();
 
 	} );
 

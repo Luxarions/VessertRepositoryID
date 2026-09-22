@@ -1,0 +1,13 @@
+/**
+ * @module Icons/People
+ * @description Contributors people icon SVG.
+ * @author prssbayu-oss
+ */
+
+export default function people( size = 16, className = '' ) {
+
+	return `<svg class="${ className }" width="${ size }" height="${ size }" viewBox="0 0 16 16" fill="currentColor">
+    <path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4.002 4.002 0 0 0-6.899 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.53.92.75.75 0 0 1-.92-.53 3.508 3.508 0 0 0-2.43-2.67.75.75 0 0 1-.5-.72v-.03a1.5 1.5 0 0 0-2.4-1.2.75.75 0 0 1-.9-.12.75.75 0 0 1-.08-.98A2.996 2.996 0 0 1 11 4ZM5.5 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"></path>
+  </svg>`;
+
+}

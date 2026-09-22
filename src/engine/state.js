@@ -21,6 +21,7 @@ const state = {
 	copied: false,
 	isStarred: false,
 	isWatching: false,
+	activeReadmeTab: 'readme',
 	repo: { ...initialRepoData },
 	consoleLogs: [],
 	isConsoleOpen: false,
